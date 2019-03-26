@@ -4,21 +4,9 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
-import Home from './HomeScreen';
+// import Main from './src/containers/Main'
+import App from './App'
 
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Home);
-
-
-// import {createStackNavigator, createAppContainer} from 'react-navigation';
-
-// const MainNavigator = createStackNavigator({
-//   Home: {screen: HomeScreen},
-//   Edit: {screen: EditScreen},
-// });
-
-// const App1 = createAppContainer(MainNavigator);
-
-// export default App1;
+AppRegistry.registerComponent(appName, () => App);

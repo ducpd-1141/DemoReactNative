@@ -1,14 +1,13 @@
 import React from 'react'; 
 import Edit from './EditScreen'
-import Detail from './DetailScreen'
   
-const { StyleSheet, Text, View, FlatList, ActivityIndicator } = require("react-native");
+const { StyleSheet, Text, View, FlatList, ActivityIndicator, SafeAreaView } = require("react-native");
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation'; // Version can be specified in package.json
 
   class HomeScreen extends React.Component {
-    static navigationOptions = {
-      title: 'Home',
-    };
+    // static navigationOptions = {
+    //   title: 'Home',
+    // };
 
   constructor(props) {
     super(props);
@@ -62,7 +61,7 @@ import { createAppContainer, createStackNavigator, StackActions, NavigationActio
       )
     }
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => 
@@ -74,7 +73,7 @@ import { createAppContainer, createStackNavigator, StackActions, NavigationActio
             }
           keyExtractor={(item, index) => index}
         />
-      </View>
+      </SafeAreaView>
     );
   }
   }
@@ -83,7 +82,7 @@ import { createAppContainer, createStackNavigator, StackActions, NavigationActio
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    marginTop: 20
+    marginTop: 0
   },
   item: {
     width: "100%",
@@ -91,16 +90,6 @@ import { createAppContainer, createStackNavigator, StackActions, NavigationActio
     marginLeft: 20,
   }
   });
+  export default HomeScreen;
 
-  const AppNavigator = createStackNavigator({
-    Home: {
-      screen: HomeScreen,
-    },
-    Details: {
-      screen: Edit,
-    },
-  }, {
-      initialRouteName: 'Home',
-  });
-  
-  export default createAppContainer(AppNavigator);
+ 

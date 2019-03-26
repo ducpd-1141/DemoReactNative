@@ -16,7 +16,7 @@ export default class EditScreen extends React.Component {
     console.log
   }
 
-  componentDidMount(){
+  async componentDidMount(){
     Animated.timing(                  // Animate over time
       this.state.fadeAnim,            // The animated value to drive
       {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 import HomeScreen from "../components/HomeScreen";
-import TopScreen from "../components/Top/TopScreen";
+import TopScreen from "../components/TopScreen";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 
 class A extends React.Component {

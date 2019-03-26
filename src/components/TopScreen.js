@@ -6,7 +6,6 @@ const {
   Text,
   View,
   FlatList,
-  ActivityIndicator,
   SafeAreaView,
   Dimensions,
   TouchableOpacity
@@ -14,16 +13,16 @@ const {
 
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { selectedCategory, unselectedCategory } from "../../actions/dispathchers";
-import configureStore from "../../store";
+import { selectedCategory, unselectedCategory } from "../actions/dispathchers";
+import configureStore from "../store";
 
 const store = configureStore();
 
-class SearchDetail extends React.Component {
-  // static navigationOptions = {
-  //   title: 'Home',
-  // };
-
+class TopScreen extends React.PureComponent {
+  static navigationOptions = {
+    title: 'Home',
+  };
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +47,7 @@ class SearchDetail extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-          <ActivityIndicator />
+        <Image source={require("../images/top.jpg")} style = { {resizeMode: "cover" } } />
         </View>
         <FlatList
           style={styles.list}
@@ -60,27 +59,12 @@ class SearchDetail extends React.Component {
               style={styles.item}
               onPress={this.didSelectedRow.bind(this, item.title)}
             >
-              <View
-                style={[
-                  { flex: 1, justifyContent: "center", alignItems: "center" }
-                ]}
-              >
-                <Image
-                  source={item.image}
-                  style={{ width: "50%", height: "50%", resizeMode: "contain" }}
-                />
+              <View style={styles.container}>
+                <Image source={item.image} style={styles.image} />
               </View>
 
               <Text
-                style={[
-                  {
-                    width: "100%",
-                    height: "35%",
-                    fontSize: 18,
-                    color: "#666666",
-                    textAlign: "center"
-                  }
-                ]}
+                style={styles.text}
               >
                 {item.title}
               </Text>
@@ -96,7 +80,7 @@ const dataSource = [
   {
     title: "Hotel",
     categoryId: "4bf58dd8d48988d1fa931735",
-    image: require("../images/ic_hotel.png")
+    image: require("..../images/ic_hotel.png")
   },
   {
     title: "Food",
@@ -124,6 +108,7 @@ const dataSource = [
     image: require("../images/ic_gym.png")
   }
 ];
+
 const numColumns = 3;
 const itemSpacing = 1;
 const width =
@@ -146,31 +131,17 @@ const styles = StyleSheet.create({
     margin: itemSpacing,
     flexDirection: "column",
     backgroundColor: "#CCCCCC"
-  }
+  },
+  text: {
+    width: "100%",
+    height: "35%",
+    fontSize: 18,
+    color: "#4C595C",
+    textAlign: "center"
+  },
+  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C"}
 });
 
-class SearchContainer extends React.Component {
-  static navigationOptions = {
-    title: "Home2",
-    tabBarOptions: {
-      activeTintColor: "#e91e63",
-      labelStyle: {
-        fontSize: 12
-      },
-      style: {
-        backgroundColor: "blue"
-      }
-    }
-  };
-
-  render() {
-    var { dispatch, main } = this.props;
-    var actionCreators = bindActionCreators(ActionCreators, dispatch);
-
-    return <TopScreen {...actionCreators} />;
-    // return <TopScreen />;
-  }
-}
 
 function mapStateToProps(state) {
   return {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import HomeScreen from "../components/HomeScreen";
+import MapScreen from "../components/MapScreen";
 import TopScreen from "../components/TopScreen";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 
@@ -73,11 +73,11 @@ class D extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-    Search: TopScreen,
-    Settings: HomeScreen,
-    History: C,
-    Profile: D,
-  });
+  Search: TopScreen,
+  Map: MapScreen,
+  History: C,
+  Profile: D,
+});
 
 
-  export default createAppContainer(TabNavigator);
+export default createAppContainer(TabNavigator);

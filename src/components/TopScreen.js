@@ -22,7 +22,7 @@ class TopScreen extends React.PureComponent {
   static navigationOptions = {
     title: 'Home',
   };
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -47,13 +47,14 @@ class TopScreen extends React.PureComponent {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-        <Image source={require("../images/top.jpg")} style = { {resizeMode: "cover" } } />
+          <Image source={require("../images/top.jpg")} style={{ resizeMode: "cover" }} />
         </View>
         <FlatList
           style={styles.list}
           scrollEnabled={false}
           numColumns={numColumns}
           data={dataSource}
+          keyExtractor={(item, index) => index}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
@@ -80,7 +81,7 @@ const dataSource = [
   {
     title: "Hotel",
     categoryId: "4bf58dd8d48988d1fa931735",
-    image: require("..../images/ic_hotel.png")
+    image: require("../images/ic_hotel.png")
   },
   {
     title: "Food",
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     color: "#4C595C",
     textAlign: "center"
   },
-  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C"}
+  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C" }
 });
 
 

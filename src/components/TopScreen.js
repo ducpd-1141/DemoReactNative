@@ -54,6 +54,7 @@ class TopScreen extends React.PureComponent {
           scrollEnabled={false}
           numColumns={numColumns}
           data={dataSource}
+          keyExtractor={(item, index) => index}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}

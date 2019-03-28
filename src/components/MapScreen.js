@@ -1,26 +1,64 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import { SafeAreaView, StyleSheet, Text, View, TextInput } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      latitude: 20.9948891,
-      longitude: 105.799677,
-      latitudeDelta: 0.002,
-      longitudeDelta: 0.002
+      region: {
+        latitude: 20.9948891,
+        longitude: 105.799677,
+        latitudeDelta: 0.005,
+        longitudeDelta: 0.005,
+      }
     };
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position)
+        this.setState({
+          region: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: 0.005,
+            longitudeDelta: 0.005,
+          }
+        });
+        console.log(this.state)
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
   }
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <MapView provider={PROVIDER_GOOGLE} style={styles.map} initialRegion={this.state}>
-          <MapView.Marker coordinate={this.state} />
-        </MapView>
-      </SafeAreaView>
+      <View style={styles.container}>
+
+        <View style={styles.containerMap}>
+          <MapView
+            showsMyLocationButton={true}
+            provider={PROVIDER_GOOGLE}
+            style={styles.map}
+            initialRegion={this.state.region}
+            region={this.state.region}
+          >
+            <Marker coordinate={this.state.region} />
+          </MapView>
+        </View>
+
+        <View style={styles.containerSearchBar}>
+          <TextInput
+            style={styles.textInputSearch}
+            placeholder="Search Foursquare"
+          />
+        </View>
+
+      </View>
     );
   }
 }
@@ -28,20 +66,29 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#fff'
   },
-  item: {
+  containerMap: {
+    flex: 1,
     width: "100%",
-    height: 65,
-    marginLeft: 20,
+    height: "100%",
+    position: 'absolute'
   },
   map: {
-    width: 300,
-    height: 300,
-    flex: 1,
-    backgroundColor: '#008800'
+    width: "100%",
+    height: "100%",
+  },
+  containerSearchBar: {
+    height: 50,
+    marginStart: 20,
+    marginEnd: 20,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    marginTop: 60
+  },
+  textInputSearch: {
+    marginStart: 20
   }
 });
 export default HomeScreen;

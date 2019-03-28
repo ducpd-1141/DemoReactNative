@@ -3,10 +3,7 @@ import mainReducer from "./MainReducer"
 
 // Root Reducer
 const rootReducer = combineReducers({
-  mainReducer
+  main: mainReducer
 })
 
 export default rootReducer
-// export default {
-//   mainReducer
-// };

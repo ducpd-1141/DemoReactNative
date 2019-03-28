@@ -11,14 +11,14 @@ const {
   TouchableOpacity
 } = require("react-native")
 
-import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
-import configureStore from "../store"
-
-const store = configureStore()
+import {createStackNavigator, createAppContainer} from 'react-navigation'
+import SearchDetailScreen from './SearchDetail'
 
 class TopScreen extends React.PureComponent {
+
+  
   static navigationOptions = {
     title: "Home"
   }
@@ -35,12 +35,13 @@ class TopScreen extends React.PureComponent {
   }
 
   didSelectedRow(id) {
-    this.selectedCategory(id)
+    this.selectedCategory(id);
+    this.props.navigation.push('SearchDetail');
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category)
-    console.warn(store.getState())
+    this.props.dispatchUnselectedCategory(category);
+    console.warn(this.props.categorySelected);
   }
 
   render() {
@@ -57,7 +58,7 @@ class TopScreen extends React.PureComponent {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
-              onPress={this.didSelectedRow.bind(this, item.title)}
+              onPress={this.didSelectedRow.bind(this, item.categoryId)}
             >
               <View style={styles.container}>
                 <Image source={item.image} style={styles.image} />
@@ -76,7 +77,7 @@ const dataSource = [
   {
     title: "Hotel",
     categoryId: "4bf58dd8d48988d1fa931735",
-    image: require("..../images/ic_hotel.png")
+    image: require("../images/ic_hotel.png")
   },
   {
     title: "Food",
@@ -137,9 +138,10 @@ const styles = StyleSheet.create({
   image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C" }
 })
 
+
 function mapStateToProps(state) {
   return {
-    main2: state.main
+    categorySelected: state.main.categorySelected,
   }
 }
 

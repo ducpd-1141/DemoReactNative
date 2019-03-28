@@ -2,7 +2,8 @@ import React from "react"
 import { Text, View } from "react-native"
 import HomeScreen from "../components/HomeScreen"
 import TopScreen from "../components/TopScreen"
-import { createBottomTabNavigator, createAppContainer } from "react-navigation"
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from "react-navigation"
+import SearchDetail from "../components/SearchDetail"
 
 class A extends React.Component {
   render() {
@@ -72,11 +73,18 @@ class D extends React.Component {
   }
 }
 
+const Navigator = createStackNavigator({
+  Home: TopScreen,
+  SearchDetail: SearchDetail,
+});
+
+const TopContainer = createAppContainer(Navigator);
+
 const TabNavigator = createBottomTabNavigator({
-  Search: TopScreen,
+  Search: TopContainer,
   Settings: HomeScreen,
   History: C,
-  Profile: D
+  Profile: D,
 })
 
-export default createAppContainer(TabNavigator)
+export default createAppContainer(TabNavigator);

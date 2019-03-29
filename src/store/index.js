@@ -1,11 +1,9 @@
-
 // import {createStore, combineReducers, applyMiddleware} from 'redux';
 // import reducers from '../reducers';
 
 // const createStoreWithMiddleware = applyMiddleware(createStore);
 // const store = createStore(combineReducers(reducers));
 // export default store;
-
 
 // import { createStore, applyMiddleware } from 'redux'
 // import reducers from '../reducers'
@@ -34,9 +32,8 @@
 //   text: 'Understand the middleware'
 // })
 
-
-import { createStore } from 'redux'
-import rootReducer from '../reducers'
+import { createStore } from "redux"
+import rootReducer from "../reducers"
 
 export default function configureStore() {
   let store = createStore(rootReducer)

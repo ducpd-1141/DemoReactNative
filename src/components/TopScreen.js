@@ -16,12 +16,21 @@ import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 import SearchDetailScreen from './SearchDetail'
 
+<<<<<<< HEAD
+=======
+import { connect } from "react-redux";
+import { selectedCategory, unselectedCategory } from "../actions/dispathchers";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import SearchDetailScreen from "./SearchDetail";
+>>>>>>> fix comments
 class TopScreen extends React.PureComponent {
-
-  
   static navigationOptions = {
     title: "Home"
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> fix comments
 
   constructor(props) {
     super(props)
@@ -36,7 +45,7 @@ class TopScreen extends React.PureComponent {
 
   didSelectedRow(id) {
     this.selectedCategory(id);
-    this.props.navigation.push('SearchDetail');
+    this.props.navigation.push("SearchDetail");
   }
 
   selectedCategory(category) {
@@ -48,7 +57,14 @@ class TopScreen extends React.PureComponent {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
+<<<<<<< HEAD
           <Image source={require("../images/top.jpg")} style={{ resizeMode: "cover" }} />
+=======
+          <Image
+            source={require("../images/top.jpg")}
+            style={{ resizeMode: "cover" }}
+          />
+>>>>>>> fix comments
         </View>
         <FlatList
           style={styles.list}
@@ -135,9 +151,19 @@ const styles = StyleSheet.create({
     color: "#4C595C",
     textAlign: "center"
   },
+<<<<<<< HEAD
   image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C" }
 })
 
+=======
+  image: {
+    width: "50%",
+    height: "50%",
+    resizeMode: "contain",
+    tintColor: "#4C595C"
+  }
+});
+>>>>>>> fix comments
 
 function mapStateToProps(state) {
   return {

@@ -21,7 +21,7 @@ const store = configureStore()
 
 class SearchDetail extends React.Component {
   static navigationOptions = {
-    title: 'Search Detail',
+    title: "Search Detail"
   };
   constructor(props) {
     super(props)
@@ -47,9 +47,15 @@ class SearchDetail extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+<<<<<<< HEAD
       <View style={styles.container}>
         <Text>Detail!</Text>
       </View>
+=======
+        <View style={styles.container}>
+          <Text>Detail!</Text>
+        </View>
+>>>>>>> fix comments
       </SafeAreaView>
     )
   }
@@ -61,7 +67,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#CCCCCC",
     alignItems: "center",
     justifyContent: "center"
+<<<<<<< HEAD
   },
 })
+=======
+  }
+});
+>>>>>>> fix comments
 
 export default SearchDetail;

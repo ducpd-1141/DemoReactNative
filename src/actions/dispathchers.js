@@ -1,10 +1,10 @@
-import { SELECTED_CATEGORY, UNSELECTED_CATEGORY } from "../actions/actionTypes"
+import { SELECTED_CATEGORY, UNSELECTED_CATEGORY } from './actionTypes'
 
 export function selectedCategory(value) {
   // console.warn(value);
   return {
     type: SELECTED_CATEGORY,
-    value
+    value,
   }
 }
 
@@ -12,6 +12,6 @@ export function unselectedCategory(value) {
   //    console.warn(value);
   return {
     type: UNSELECTED_CATEGORY,
-    value
+    value,
   }
 }

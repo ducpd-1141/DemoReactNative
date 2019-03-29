@@ -1,4 +1,9 @@
-import React from "react"
+import React from 'react'
+
+import { connect } from 'react-redux'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
+import { selectedCategory, unselectedCategory } from '../actions/dispathchers'
+import SearchDetailScreen from './SearchDetail'
 
 const {
   Image,
@@ -8,63 +13,41 @@ const {
   FlatList,
   SafeAreaView,
   Dimensions,
-  TouchableOpacity
-} = require("react-native")
+  TouchableOpacity,
+} = require('react-native')
 
-import { connect } from "react-redux"
-import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
-import {createStackNavigator, createAppContainer} from 'react-navigation'
-import SearchDetailScreen from './SearchDetail'
-
-<<<<<<< HEAD
-=======
-import { connect } from "react-redux";
-import { selectedCategory, unselectedCategory } from "../actions/dispathchers";
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import SearchDetailScreen from "./SearchDetail";
->>>>>>> fix comments
 class TopScreen extends React.PureComponent {
   static navigationOptions = {
-    title: "Home"
-<<<<<<< HEAD
+    title: 'Home',
   }
-=======
-  };
->>>>>>> fix comments
 
   constructor(props) {
     super(props)
     this.state = {
-      text: "test state",
+      text: 'test state',
       buttonPress: true,
       isLoading: true,
-      selectedId: 0
+      selectedId: 0,
     }
     console.log
   }
 
   didSelectedRow(id) {
-    this.selectedCategory(id);
-    this.props.navigation.push("SearchDetail");
+    this.selectedCategory(id)
+    this.props.navigation.push('SearchDetail')
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category);
-    console.warn(this.props.categorySelected);
+    this.props.dispatchUnselectedCategory(category)
+    console.warn(this.props.categorySelected)
   }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-<<<<<<< HEAD
-          <Image source={require("../images/top.jpg")} style={{ resizeMode: "cover" }} />
-=======
-          <Image
-            source={require("../images/top.jpg")}
-            style={{ resizeMode: "cover" }}
-          />
->>>>>>> fix comments
+          <Image source={require('../images/top.jpg')} style={{ resizeMode: 'cover' }} />
+
         </View>
         <FlatList
           style={styles.list}
@@ -91,80 +74,70 @@ class TopScreen extends React.PureComponent {
 
 const dataSource = [
   {
-    title: "Hotel",
-    categoryId: "4bf58dd8d48988d1fa931735",
-    image: require("../images/ic_hotel.png")
+    title: 'Hotel',
+    categoryId: '4bf58dd8d48988d1fa931735',
+    image: require('../images/ic_hotel.png'),
   },
   {
-    title: "Food",
-    categoryId: "4d4b7105d754a06374d81259",
-    image: require("../images/ic_food.png")
+    title: 'Food',
+    categoryId: '4d4b7105d754a06374d81259',
+    image: require('../images/ic_food.png'),
   },
   {
-    title: "Night Market",
-    categoryId: "53e510b7498ebcb1801b55d4",
-    image: require("../images/ic_market.png")
+    title: 'Night Market',
+    categoryId: '53e510b7498ebcb1801b55d4',
+    image: require('../images/ic_market.png'),
   },
   {
-    title: "Coffee Shop",
-    categoryId: "4bf58dd8d48988d1e0931735",
-    image: require("../images/ic_coffee.png")
+    title: 'Coffee Shop',
+    categoryId: '4bf58dd8d48988d1e0931735',
+    image: require('../images/ic_coffee.png'),
   },
   {
-    title: "Movie Theater",
-    categoryId: "4bf58dd8d48988d17f941735",
-    image: require("../images/ic_cinema.png")
+    title: 'Movie Theater',
+    categoryId: '4bf58dd8d48988d17f941735',
+    image: require('../images/ic_cinema.png'),
   },
   {
-    title: "Gym / Fitness Center",
-    categoryId: "4bf58dd8d48988d175941735",
-    image: require("../images/ic_gym.png")
-  }
+    title: 'Gym / Fitness Center',
+    categoryId: '4bf58dd8d48988d175941735',
+    image: require('../images/ic_gym.png'),
+  },
 ]
 
 const numColumns = 3
 const itemSpacing = 1
-const width = (Dimensions.get("window").width - (numColumns - 1) * itemSpacing) / 3
-var height = 342 / 2
+const width = (Dimensions.get('window').width - (numColumns - 1) * itemSpacing) / 3
+const height = 342 / 2
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#CCCCCC",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#CCCCCC',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   list: {
     flex: 1,
-    backgroundColor: "#999999"
+    backgroundColor: '#999999',
   },
   item: {
-    width: width,
-    height: height,
+    width,
+    height,
     margin: itemSpacing,
-    flexDirection: "column",
-    backgroundColor: "#CCCCCC"
+    flexDirection: 'column',
+    backgroundColor: '#CCCCCC',
   },
   text: {
-    width: "100%",
-    height: "35%",
+    width: '100%',
+    height: '35%',
     fontSize: 18,
-    color: "#4C595C",
-    textAlign: "center"
+    color: '#4C595C',
+    textAlign: 'center',
   },
-<<<<<<< HEAD
-  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C" }
-})
-
-=======
   image: {
-    width: "50%",
-    height: "50%",
-    resizeMode: "contain",
-    tintColor: "#4C595C"
-  }
-});
->>>>>>> fix comments
-
+    width: '50%', height: '50%', resizeMode: 'contain', tintColor: '#4C595C',
+  },
+})
 function mapStateToProps(state) {
   return {
     categorySelected: state.main.categorySelected,
@@ -174,11 +147,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     dispatchSelectedCategory: category => dispatch(selectedCategory(category)),
-    dispatchUnselectedCategory: category => dispatch(unselectedCategory(category))
+    dispatchUnselectedCategory: category => dispatch(unselectedCategory(category)),
   }
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(TopScreen)

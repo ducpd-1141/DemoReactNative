@@ -1,5 +1,11 @@
-import React from "react"
-import Edit from "./EditScreen"
+import React from 'react'
+import {
+  createAppContainer,
+  createStackNavigator,
+  StackActions,
+  NavigationActions,
+} from 'react-navigation'
+import Edit from './EditScreen'
 
 const {
   StyleSheet,
@@ -7,14 +13,8 @@ const {
   View,
   FlatList,
   ActivityIndicator,
-  SafeAreaView
-} = require("react-native")
-import {
-  createAppContainer,
-  createStackNavigator,
-  StackActions,
-  NavigationActions
-} from "react-navigation" // Version can be specified in package.json
+  SafeAreaView,
+} = require('react-native') // Version can be specified in package.json
 
 class HomeScreen extends React.Component {
   // static navigationOptions = {
@@ -23,13 +23,15 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { text: "test state", buttonPress: true, isLoading: true, selectedId: 0 }
+    this.state = {
+      text: 'test state', buttonPress: true, isLoading: true, selectedId: 0,
+    }
     console.log
   }
 
   didSelectedRow(id) {
-    this.props.navigation.push("Details", {
-      itemId: id
+    this.props.navigation.push('Details', {
+      itemId: id,
     })
     // this.props.navigation.dispatch(StackActions.push({
     //   routeName: 'Details',
@@ -45,19 +47,19 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     return fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=d79d9f8467a0e6d7b24624c522cb2ab3"
+      'https://api.themoviedb.org/3/genre/movie/list?api_key=d79d9f8467a0e6d7b24624c522cb2ab3',
     )
       .then(response => response.json())
-      .then(responseJson => {
+      .then((responseJson) => {
         this.setState(
           {
             isLoading: false,
-            dataSource: responseJson.genres
+            dataSource: responseJson.genres,
           },
-          function() {}
+          () => {},
         )
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error)
       })
   }
@@ -94,13 +96,13 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    marginTop: 0
+    backgroundColor: '#fff',
+    marginTop: 0,
   },
   item: {
-    width: "100%",
+    width: '100%',
     height: 65,
-    marginLeft: 20
-  }
+    marginLeft: 20,
+  },
 })
 export default HomeScreen

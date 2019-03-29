@@ -1,4 +1,9 @@
-import React from "react"
+import React from 'react'
+
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { selectedCategory, unselectedCategory } from '../actions/dispathchers'
+import configureStore from '../store'
 
 const {
   Image,
@@ -9,27 +14,23 @@ const {
   ActivityIndicator,
   SafeAreaView,
   Dimensions,
-  TouchableOpacity
-} = require("react-native")
-
-import { bindActionCreators } from "redux"
-import { connect } from "react-redux"
-import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
-import configureStore from "../store"
+  TouchableOpacity,
+} = require('react-native')
 
 const store = configureStore()
 
 class SearchDetail extends React.Component {
   static navigationOptions = {
-    title: "Search Detail"
+    title: 'Search Detail',
   };
+
   constructor(props) {
     super(props)
     this.state = {
-      text: "test state",
+      text: 'test state',
       buttonPress: true,
       isLoading: true,
-      selectedId: 0
+      selectedId: 0,
     }
     console.log
   }
@@ -47,15 +48,9 @@ class SearchDetail extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-<<<<<<< HEAD
       <View style={styles.container}>
         <Text>Detail!</Text>
       </View>
-=======
-        <View style={styles.container}>
-          <Text>Detail!</Text>
-        </View>
->>>>>>> fix comments
       </SafeAreaView>
     )
   }
@@ -64,15 +59,10 @@ class SearchDetail extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#CCCCCC",
-    alignItems: "center",
-    justifyContent: "center"
-<<<<<<< HEAD
+    backgroundColor: '#CCCCCC',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 })
-=======
-  }
-});
->>>>>>> fix comments
 
-export default SearchDetail;
+export default SearchDetail

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const {
   Image,
@@ -9,45 +9,45 @@ const {
   SafeAreaView,
   Dimensions,
   TouchableOpacity
-} = require("react-native");
+} = require("react-native")
 
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { selectedCategory, unselectedCategory } from "../actions/dispathchers";
-import configureStore from "../store";
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
+import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
+import configureStore from "../store"
 
-const store = configureStore();
+const store = configureStore()
 
 class TopScreen extends React.PureComponent {
   static navigationOptions = {
-    title: 'Home',
-  };
-  
+    title: "Home"
+  }
+
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       text: "test state",
       buttonPress: true,
       isLoading: true,
       selectedId: 0
-    };
-    console.log;
+    }
+    console.log
   }
 
   didSelectedRow(id) {
-    this.selectedCategory(id);
+    this.selectedCategory(id)
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category);
-    console.warn(store.getState());
+    this.props.dispatchUnselectedCategory(category)
+    console.warn(store.getState())
   }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-        <Image source={require("../images/top.jpg")} style = { {resizeMode: "cover" } } />
+          <Image source={require("../images/top.jpg")} style={{ resizeMode: "cover" }} />
         </View>
         <FlatList
           style={styles.list}
@@ -63,16 +63,12 @@ class TopScreen extends React.PureComponent {
                 <Image source={item.image} style={styles.image} />
               </View>
 
-              <Text
-                style={styles.text}
-              >
-                {item.title}
-              </Text>
+              <Text style={styles.text}>{item.title}</Text>
             </TouchableOpacity>
           )}
         />
       </SafeAreaView>
-    );
+    )
   }
 }
 
@@ -107,13 +103,12 @@ const dataSource = [
     categoryId: "4bf58dd8d48988d175941735",
     image: require("../images/ic_gym.png")
   }
-];
+]
 
-const numColumns = 3;
-const itemSpacing = 1;
-const width =
-  (Dimensions.get("window").width - (numColumns - 1) * itemSpacing) / 3;
-var height = 342 / 2;
+const numColumns = 3
+const itemSpacing = 1
+const width = (Dimensions.get("window").width - (numColumns - 1) * itemSpacing) / 3
+var height = 342 / 2
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -139,25 +134,23 @@ const styles = StyleSheet.create({
     color: "#4C595C",
     textAlign: "center"
   },
-  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C"}
-});
-
+  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C" }
+})
 
 function mapStateToProps(state) {
   return {
     main2: state.main
-  };
+  }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatchSelectedCategory: category => dispatch(selectedCategory(category)),
-    dispatchUnselectedCategory: category =>
-      dispatch(unselectedCategory(category))
-  };
+    dispatchUnselectedCategory: category => dispatch(unselectedCategory(category))
+  }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TopScreen);
+)(TopScreen)

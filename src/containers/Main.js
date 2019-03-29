@@ -1,8 +1,8 @@
-import React from "react";
-import { Text, View } from "react-native";
-import HomeScreen from "../components/HomeScreen";
-import TopScreen from "../components/TopScreen";
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import React from "react"
+import { Text, View } from "react-native"
+import HomeScreen from "../components/HomeScreen"
+import TopScreen from "../components/TopScreen"
+import { createBottomTabNavigator, createAppContainer } from "react-navigation"
 
 class A extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class A extends React.Component {
       >
         <Text>Home!</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -34,7 +34,7 @@ class B extends React.Component {
       >
         <Text>Settings!</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -51,7 +51,7 @@ class C extends React.Component {
       >
         <Text>History</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -68,16 +68,15 @@ class D extends React.Component {
       >
         <Text>Profile</Text>
       </View>
-    );
+    )
   }
 }
 
 const TabNavigator = createBottomTabNavigator({
-    Search: TopScreen,
-    Settings: HomeScreen,
-    History: C,
-    Profile: D,
-  });
+  Search: TopScreen,
+  Settings: HomeScreen,
+  History: C,
+  Profile: D
+})
 
-
-  export default createAppContainer(TabNavigator);
+export default createAppContainer(TabNavigator)

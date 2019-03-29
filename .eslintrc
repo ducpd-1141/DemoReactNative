@@ -1,0 +1,106 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "airbnb-base"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "legacyDecorators": true
+      }
+    },
+    "plugins": [
+      "react",
+      "react-native",
+      "flowtype",
+      "jsx-a11y",
+      "import"
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/prefer-stateless-function": [
+        2,
+        {
+          "ignorePureComponents": true
+        }
+      ],
+      "react/forbid-prop-types": [
+        0,
+        {
+          "forbid": []
+        }
+      ],
+      "import/extensions": [
+        1,
+        "never",
+        {
+          "svg": "always"
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true,
+          "optionalDependencies": false,
+          "peerDependencies": false
+        }
+      ],
+      "semi": [
+        "error",
+        "never"
+      ],
+      "no-console": "warn",
+      "react/prop-types": "off",
+      "import/no-named-as-default-member": "off",
+      "class-methods-use-this": "off",
+      "react-native/no-unused-styles": 2,
+      "react-native/split-platform-components": 2,
+      "react-native/no-inline-styles": 2,
+      "react-native/no-color-literals": 2,
+      "react-native/no-raw-text": 2
+    },
+    "env": {
+      "react-native/react-native": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".json"
+          ]
+        }
+      },
+      "import/extensions": [
+        ".js",
+        ".mjs",
+        ".jsx"
+      ],
+      "import/core-modules": [],
+      "import/ignore": [
+        "node_modules",
+        "\\.(coffee|scss|css|less|hbs|svg|json)$"
+      ],
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      },
+      "propWrapperFunctions": [
+        "forbidExtraProps",
+        "exact",
+        "Object.freeze"
+      ]
+    }
+  }

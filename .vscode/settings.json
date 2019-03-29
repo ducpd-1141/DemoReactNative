@@ -1,0 +1,10 @@
+{
+    "editor.tabSize": 2,
+    "javascript.validate.enable": false,
+    "typescript.validate.enable": false,
+    "flow.useNPMPackagedFlow": true,
+    "javascript.format.enable": false,
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.packageManager": "yarn"
+}

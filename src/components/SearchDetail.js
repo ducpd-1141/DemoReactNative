@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const {
   Image,
@@ -10,14 +10,14 @@ const {
   SafeAreaView,
   Dimensions,
   TouchableOpacity
-} = require("react-native");
+} = require("react-native")
 
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { selectedCategory, unselectedCategory } from "../actions/dispathchers";
-import configureStore from "../store";
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
+import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
+import configureStore from "../store"
 
-const store = configureStore();
+const store = configureStore()
 
 class SearchDetail extends React.Component {
   // static navigationOptions = {
@@ -25,23 +25,23 @@ class SearchDetail extends React.Component {
   // };
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       text: "test state",
       buttonPress: true,
       isLoading: true,
       selectedId: 0
-    };
-    console.log;
+    }
+    console.log
   }
 
   didSelectedRow(id) {
-    this.selectedCategory(id);
+    this.selectedCategory(id)
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category);
-    console.warn(store.getState());
+    this.props.dispatchUnselectedCategory(category)
+    console.warn(store.getState())
   }
 
   render() {
@@ -60,11 +60,7 @@ class SearchDetail extends React.Component {
               style={styles.item}
               onPress={this.didSelectedRow.bind(this, item.title)}
             >
-              <View
-                style={[
-                  { flex: 1, justifyContent: "center", alignItems: "center" }
-                ]}
-              >
+              <View style={[{ flex: 1, justifyContent: "center", alignItems: "center" }]}>
                 <Image
                   source={item.image}
                   style={{ width: "50%", height: "50%", resizeMode: "contain" }}
@@ -88,7 +84,7 @@ class SearchDetail extends React.Component {
           )}
         />
       </SafeAreaView>
-    );
+    )
   }
 }
 
@@ -123,12 +119,11 @@ const dataSource = [
     categoryId: "4bf58dd8d48988d175941735",
     image: require("../images/ic_gym.png")
   }
-];
-const numColumns = 3;
-const itemSpacing = 1;
-const width =
-  (Dimensions.get("window").width - (numColumns - 1) * itemSpacing) / 3;
-var height = 342 / 2;
+]
+const numColumns = 3
+const itemSpacing = 1
+const width = (Dimensions.get("window").width - (numColumns - 1) * itemSpacing) / 3
+var height = 342 / 2
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -147,7 +142,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#CCCCCC"
   }
-});
+})
 
 class SearchContainer extends React.Component {
   static navigationOptions = {
@@ -161,13 +156,13 @@ class SearchContainer extends React.Component {
         backgroundColor: "blue"
       }
     }
-  };
+  }
 
   render() {
-    var { dispatch, main } = this.props;
-    var actionCreators = bindActionCreators(ActionCreators, dispatch);
+    var { dispatch, main } = this.props
+    var actionCreators = bindActionCreators(ActionCreators, dispatch)
 
-    return <TopScreen {...actionCreators} />;
+    return <TopScreen {...actionCreators} />
     // return <TopScreen />;
   }
 }
@@ -175,18 +170,17 @@ class SearchContainer extends React.Component {
 function mapStateToProps(state) {
   return {
     main2: state.main
-  };
+  }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatchSelectedCategory: category => dispatch(selectedCategory(category)),
-    dispatchUnselectedCategory: category =>
-      dispatch(unselectedCategory(category))
-  };
+    dispatchUnselectedCategory: category => dispatch(unselectedCategory(category))
+  }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TopScreen);
+)(TopScreen)

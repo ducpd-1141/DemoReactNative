@@ -1,8 +1,8 @@
-import React from "react";
-import { Text, View } from "react-native";
-import MapScreen from "../components/MapScreen";
-import TopScreen from "../components/TopScreen";
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import React from 'react';
+import { Text, View } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import MapScreen from '../components/MapScreen';
+import TopScreen from '../components/TopScreen';
 
 class A extends React.Component {
   render() {
@@ -10,9 +10,9 @@ class A extends React.Component {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#fff"
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#fff',
         }}
       >
         <Text>Home!</Text>
@@ -27,9 +27,9 @@ class B extends React.Component {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#fff"
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#fff',
         }}
       >
         <Text>Settings!</Text>
@@ -44,9 +44,9 @@ class C extends React.Component {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#fff"
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#fff',
         }}
       >
         <Text>History</Text>
@@ -61,9 +61,9 @@ class D extends React.Component {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#fff"
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#fff',
         }}
       >
         <Text>Profile</Text>

@@ -54,6 +54,7 @@ class TopScreen extends React.PureComponent {
           scrollEnabled={false}
           numColumns={numColumns}
           data={dataSource}
+          keyExtractor={(item, index) => index}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
@@ -76,7 +77,7 @@ const dataSource = [
   {
     title: "Hotel",
     categoryId: "4bf58dd8d48988d1fa931735",
-    image: require("..../images/ic_hotel.png")
+    image: require("../images/ic_hotel.png")
   },
   {
     title: "Food",

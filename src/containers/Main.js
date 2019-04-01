@@ -1,43 +1,9 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation'
-import HomeScreen from '../components/HomeScreen'
-import TopScreen from '../components/TopScreen'
-import SearchDetail from '../components/SearchDetail'
-
-class A extends React.Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#fff',
-        }}
-      >
-        <Text>Home!</Text>
-      </View>
-    )
-  }
-}
-
-class B extends React.Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#fff',
-        }}
-      >
-        <Text>Settings!</Text>
-      </View>
-    )
-  }
-}
+import React from 'react';
+import { Text, View } from 'react-native';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
+import MapScreen from '../components/MapScreen';
+import TopScreen from '../components/TopScreen';
+import SearchDetail from '../components/SearchDetail';
 
 class C extends React.Component {
   render() {
@@ -52,7 +18,7 @@ class C extends React.Component {
       >
         <Text>History</Text>
       </View>
-    )
+    );
   }
 }
 
@@ -69,22 +35,22 @@ class D extends React.Component {
       >
         <Text>Profile</Text>
       </View>
-    )
+    );
   }
 }
 
 const Navigator = createStackNavigator({
   Home: TopScreen,
   SearchDetail,
-})
+});
 
-const TopContainer = createAppContainer(Navigator)
+const TopContainer = createAppContainer(Navigator);
 
 const TabNavigator = createBottomTabNavigator({
   Search: TopContainer,
-  Settings: HomeScreen,
+  Settings: MapScreen,
   History: C,
   Profile: D,
-})
+});
 
-export default createAppContainer(TabNavigator)
+export default createAppContainer(TabNavigator);

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import {
   createAppContainer,
   createStackNavigator,
   StackActions,
   NavigationActions,
-} from 'react-navigation'
-import Edit from './EditScreen'
+} from 'react-navigation';
+import Edit from './EditScreen';
 
 const {
   StyleSheet,
@@ -14,7 +14,7 @@ const {
   FlatList,
   ActivityIndicator,
   SafeAreaView,
-} = require('react-native') // Version can be specified in package.json
+} = require('react-native'); // Version can be specified in package.json
 
 class HomeScreen extends React.Component {
   // static navigationOptions = {
@@ -22,17 +22,17 @@ class HomeScreen extends React.Component {
   // };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       text: 'test state', buttonPress: true, isLoading: true, selectedId: 0,
-    }
-    console.log
+    };
+    console.log;
   }
 
   didSelectedRow(id) {
     this.props.navigation.push('Details', {
       itemId: id,
-    })
+    });
     // this.props.navigation.dispatch(StackActions.push({
     //   routeName: 'Details',
     //   params: {
@@ -57,11 +57,11 @@ class HomeScreen extends React.Component {
             dataSource: responseJson.genres,
           },
           () => {},
-        )
+        );
       })
       .catch((error) => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
 
   render() {
@@ -70,7 +70,7 @@ class HomeScreen extends React.Component {
         <View style={{ flex: 1, padding: 20 }}>
           <ActivityIndicator />
         </View>
-      )
+      );
     }
     return (
       <SafeAreaView style={styles.container}>
@@ -89,7 +89,7 @@ class HomeScreen extends React.Component {
           keyExtractor={(item, index) => index}
         />
       </SafeAreaView>
-    )
+    );
   }
 }
 
@@ -104,5 +104,5 @@ const styles = StyleSheet.create({
     height: 65,
     marginLeft: 20,
   },
-})
-export default HomeScreen
+});
+export default HomeScreen;

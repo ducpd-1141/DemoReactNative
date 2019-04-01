@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { selectedCategory, unselectedCategory } from '../actions/dispathchers'
-import configureStore from '../store'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { selectedCategory, unselectedCategory } from '../actions/dispathchers';
+import configureStore from '../store';
 
 const {
   Image,
@@ -15,9 +15,9 @@ const {
   SafeAreaView,
   Dimensions,
   TouchableOpacity,
-} = require('react-native')
+} = require('react-native');
 
-const store = configureStore()
+const store = configureStore();
 
 class SearchDetail extends React.Component {
   static navigationOptions = {
@@ -25,14 +25,14 @@ class SearchDetail extends React.Component {
   };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       text: 'test state',
       buttonPress: true,
       isLoading: true,
       selectedId: 0,
-    }
-    console.log
+    };
+    console.log;
   }
 
   didSelectedRow(id) {
@@ -41,8 +41,8 @@ class SearchDetail extends React.Component {
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category)
-    console.warn(store.getState())
+    this.props.dispatchUnselectedCategory(category);
+    console.warn(store.getState());
   }
 
   render() {
@@ -52,7 +52,7 @@ class SearchDetail extends React.Component {
         <Text>Detail!</Text>
       </View>
       </SafeAreaView>
-    )
+    );
   }
 }
 
@@ -63,6 +63,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-})
+});
 
-export default SearchDetail
+export default SearchDetail;

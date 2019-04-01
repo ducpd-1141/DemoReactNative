@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { connect } from 'react-redux'
-import { createStackNavigator, createAppContainer } from 'react-navigation'
-import { selectedCategory, unselectedCategory } from '../actions/dispathchers'
-import SearchDetailScreen from './SearchDetail'
+import { connect } from 'react-redux';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { selectedCategory, unselectedCategory } from '../actions/dispathchers';
+import SearchDetailScreen from './SearchDetail';
 
 const {
   Image,
@@ -14,7 +14,7 @@ const {
   SafeAreaView,
   Dimensions,
   TouchableOpacity,
-} = require('react-native')
+} = require('react-native');
 
 class TopScreen extends React.PureComponent {
   static navigationOptions = {
@@ -22,24 +22,23 @@ class TopScreen extends React.PureComponent {
   }
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       text: 'test state',
       buttonPress: true,
       isLoading: true,
       selectedId: 0,
-    }
-    console.log
+    };
   }
 
   didSelectedRow(id) {
-    this.selectedCategory(id)
-    this.props.navigation.push('SearchDetail')
+    this.selectedCategory(id);
+    this.props.navigation.push('SearchDetail');
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category)
-    console.warn(this.props.categorySelected)
+    this.props.dispatchUnselectedCategory(category);
+    console.warn(this.props.categorySelected);
   }
 
   render() {
@@ -54,6 +53,7 @@ class TopScreen extends React.PureComponent {
           scrollEnabled={false}
           numColumns={numColumns}
           data={dataSource}
+          keyExtractor={(item, index) => index}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
@@ -68,7 +68,7 @@ class TopScreen extends React.PureComponent {
           )}
         />
       </SafeAreaView>
-    )
+    );
   }
 }
 
@@ -103,12 +103,12 @@ const dataSource = [
     categoryId: '4bf58dd8d48988d175941735',
     image: require('../images/ic_gym.png'),
   },
-]
+];
 
-const numColumns = 3
-const itemSpacing = 1
-const width = (Dimensions.get('window').width - (numColumns - 1) * itemSpacing) / 3
-const height = 342 / 2
+const numColumns = 3;
+const itemSpacing = 1;
+const width = (Dimensions.get('window').width - (numColumns - 1) * itemSpacing) / 3;
+const height = 342 / 2;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -137,21 +137,21 @@ const styles = StyleSheet.create({
   image: {
     width: '50%', height: '50%', resizeMode: 'contain', tintColor: '#4C595C',
   },
-})
+});
 function mapStateToProps(state) {
   return {
     categorySelected: state.main.categorySelected,
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatchSelectedCategory: category => dispatch(selectedCategory(category)),
     dispatchUnselectedCategory: category => dispatch(unselectedCategory(category)),
-  }
+  };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TopScreen)
+)(TopScreen);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import {
   StyleSheet,
@@ -8,13 +8,13 @@ import {
   ActivityIndicator,
   FlatList,
   Dimensions,
-} from 'react-native'
+} from 'react-native';
 import {
   createAppContainer,
   createStackNavigator,
   StackActions,
   NavigationActions,
-} from 'react-navigation' // Version can be specified in package.json
+} from 'react-navigation'; // Version can be specified in package.json
 
 export default class EditScreen extends React.Component {
   static navigationOptions = {
@@ -22,9 +22,9 @@ export default class EditScreen extends React.Component {
   }
 
   constructor(props) {
-    super(props)
-    this.state = { text: 'test state', isLoading: true, fadeAnim: new Animated.Value(0) }
-    console.log
+    super(props);
+    this.state = { text: 'test state', isLoading: true, fadeAnim: new Animated.Value(0) };
+    console.log;
   }
 
   async componentDidMount() {
@@ -35,28 +35,28 @@ export default class EditScreen extends React.Component {
         toValue: 1, // Animate to opacity: 1 (opaque)
         duration: 1000, // Make it take a while
       },
-    ).start()
+    ).start();
 
     try {
-      const { navigation } = this.props
-      const itemId = navigation.getParam('itemId', 'NO-ID')
-      console.log(itemId)
+      const { navigation } = this.props;
+      const itemId = navigation.getParam('itemId', 'NO-ID');
+      console.log(itemId);
       console.log(
         `https://api.themoviedb.org/3/genre/${itemId}/movies?api_key=d79d9f8467a0e6d7b24624c522cb2ab3`,
-      )
+      );
       const response = await fetch(
         `https://api.themoviedb.org/3/genre/${itemId}/movies?api_key=d79d9f8467a0e6d7b24624c522cb2ab3`,
-      )
-      const responseJson = await response.json()
+      );
+      const responseJson = await response.json();
       this.setState(
         {
           isLoading: false,
           dataSource: responseJson.results,
         },
         () => {},
-      )
+      );
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 
@@ -68,9 +68,9 @@ export default class EditScreen extends React.Component {
         <View style={{ flex: 1, padding: 20 }}>
           <ActivityIndicator />
         </View>
-      )
+      );
     }
-    const { fadeAnim } = this.state
+    const { fadeAnim } = this.state;
     return (
       <View style={styles.container}>
         <FlatList
@@ -90,12 +90,12 @@ export default class EditScreen extends React.Component {
           keyExtractor={(item, index) => index}
         />
       </View>
-    )
+    );
   }
 }
-const numColumns = 3
-const itemSpacing = 3
-const size = (Dimensions.get('window').width - (numColumns - 1) * itemSpacing) / 3
+const numColumns = 3;
+const itemSpacing = 3;
+const size = (Dimensions.get('window').width - (numColumns - 1) * itemSpacing) / 3;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
     marginBottom: itemSpacing,
     flexDirection: 'column',
   },
-})
+});

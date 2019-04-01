@@ -17,7 +17,7 @@ const store = configureStore()
 
 const app = () => (
   <Provider store={store}>
-  <Main />
+    <Main />
   </Provider>
 );
 

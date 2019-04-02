@@ -1,4 +1,6 @@
 import React from 'react';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from 'react-redux';
 import { selectedCategory, unselectedCategory } from '../actions/dispathchers';
@@ -17,7 +19,7 @@ const {
 class TopScreen extends React.PureComponent {
   static navigationOptions = {
     title: 'Home',
-  }
+  };
 
   didSelectedRow(id) {
     this.selectedCategory(id);
@@ -44,12 +46,11 @@ class TopScreen extends React.PureComponent {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
-              onPress= {() => this.didSelectedRow(item.categoryId)}
+              onPress={() => this.didSelectedRow(item.categoryId)}
             >
               <View style={styles.container}>
-                <Image source={item.image} style={styles.categoryImage} />
+                <Text>{item.image}</Text>
               </View>
-
               <Text style={styles.text}>{item.title}</Text>
             </TouchableOpacity>
           )}
@@ -65,32 +66,32 @@ const dataSource = [
   {
     title: 'Hotel',
     categoryId: '4bf58dd8d48988d1fa931735',
-    image: require('../images/ic_hotel.png'),
+    image: <MaterialIcons name="hotel" size={50} color="#4C595C" />,
   },
   {
     title: 'Food',
     categoryId: '4d4b7105d754a06374d81259',
-    image: require('../images/ic_food.png'),
+    image: <MaterialIcons name="restaurant" size={50} color="#4C595C" />,
   },
   {
     title: 'Night Market',
     categoryId: '53e510b7498ebcb1801b55d4',
-    image: require('../images/ic_market.png'),
+    image: <MaterialIcons name="shopping-cart" size={50} color="#4C595C" />,
   },
   {
     title: 'Coffee Shop',
     categoryId: '4bf58dd8d48988d1e0931735',
-    image: require('../images/ic_coffee.png'),
+    image: <MaterialIcons name="local-drink" size={50} color="#4C595C" />,
   },
   {
     title: 'Movie Theater',
     categoryId: '4bf58dd8d48988d17f941735',
-    image: require('../images/ic_cinema.png'),
+    image: <MaterialCommunityIcons name="theater" size={50} color="#4C595C" />,
   },
   {
     title: 'Gym / Fitness Center',
     categoryId: '4bf58dd8d48988d175941735',
-    image: require('../images/ic_gym.png'),
+    image: <MaterialIcons name="fitness-center" size={50} color="#4C595C" />,
   },
 ];
 
@@ -124,7 +125,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   categoryImage: {
-    width: '50%', height: '50%', resizeMode: 'contain', tintColor: '#4C595C',
+    width: '50%',
+    height: '50%',
+    resizeMode: 'contain',
+    tintColor: '#4C595C',
   },
   coverImage: { resizeMode: 'cover' },
 });

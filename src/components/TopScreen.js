@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { selectedCategory, unselectedCategory } from '../actions/dispathchers';
-import SearchDetailScreen from './SearchDetail';
 
 const {
   Image,

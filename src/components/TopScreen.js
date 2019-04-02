@@ -21,16 +21,6 @@ class TopScreen extends React.PureComponent {
     title: 'Home',
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: 'test state',
-      buttonPress: true,
-      isLoading: true,
-      selectedId: 0,
-    };
-  }
-
   didSelectedRow(id) {
     this.selectedCategory(id);
     this.props.navigation.push('SearchDetail');
@@ -45,8 +35,7 @@ class TopScreen extends React.PureComponent {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-          <Image source={require('../images/top.jpg')} style={{ resizeMode: 'cover' }} />
-
+          <Image source={coverImage} style={styles.coverImage} />
         </View>
         <FlatList
           style={styles.list}
@@ -57,10 +46,10 @@ class TopScreen extends React.PureComponent {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
-              onPress={this.didSelectedRow.bind(this, item.categoryId)}
+              onPress= {() => this.didSelectedRow(item.categoryId)}
             >
               <View style={styles.container}>
-                <Image source={item.image} style={styles.image} />
+                <Image source={item.image} style={styles.categoryImage} />
               </View>
 
               <Text style={styles.text}>{item.title}</Text>
@@ -71,6 +60,8 @@ class TopScreen extends React.PureComponent {
     );
   }
 }
+
+const coverImage = require('../images/top.jpg');
 
 const dataSource = [
   {
@@ -134,9 +125,10 @@ const styles = StyleSheet.create({
     color: '#4C595C',
     textAlign: 'center',
   },
-  image: {
+  categoryImage: {
     width: '50%', height: '50%', resizeMode: 'contain', tintColor: '#4C595C',
   },
+  coverImage: { resizeMode: 'cover' },
 });
 function mapStateToProps(state) {
   return {

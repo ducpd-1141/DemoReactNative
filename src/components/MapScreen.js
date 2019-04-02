@@ -3,6 +3,10 @@ import { StyleSheet, View, TextInput } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Explore',
+  }
+
   constructor(props) {
     super(props);
     this.state = {

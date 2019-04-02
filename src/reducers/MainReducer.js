@@ -1,20 +1,17 @@
-import { SELECTED_CATEGORY, UNSELECTED_CATEGORY } from "../actions/actionTypes"
+import { SELECTED_CATEGORY, UNSELECTED_CATEGORY } from '../actions/actionTypes';
 
 const initialState = {
-  title: "hotel"
-}
+  categorySelected: '',
+};
 
 export default function mainReducer(state = initialState, action) {
-  console.warn(action)
   // Log the initial state
-
   switch (action.type) {
     case SELECTED_CATEGORY:
-      return { ...state, title: action.category }
+      return { ...state, categorySelected: action.value };
     case UNSELECTED_CATEGORY:
-      return { ...state, title: action.category }
-
+      return { ...state, categorySelected: action.value };
     default:
-      return state
+      return state;
   }
 }

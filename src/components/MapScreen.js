@@ -5,7 +5,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Explore',
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -41,7 +41,6 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.containerMap}>
           <MapView
             showsMyLocationButton={true}
@@ -60,7 +59,6 @@ class HomeScreen extends React.Component {
             placeholder="Search Foursquare"
           />
         </View>
-
       </View>
     );
   }

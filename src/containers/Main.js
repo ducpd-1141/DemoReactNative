@@ -55,16 +55,17 @@ const TabNavigator = createBottomTabNavigator({
 },
 {
   defaultNavigationOptions: ({ navigation }) => ({
+    // eslint-disable-next-line react/display-name
     tabBarIcon: ({ focused, horizontal, tintColor }) => {
       const { routeName } = navigation.state;
       let iconName = '';
-      if (routeName == 'Search') {
+      if (routeName === 'Search') {
         iconName = 'search';
-      } else if (routeName == 'Explore') {
+      } else if (routeName === 'Explore') {
         iconName = 'explore';
-      } else if (routeName == 'History') {
-        iconName = 'list';
-      } else if (routeName == 'Profile') {
+      } else if (routeName === 'History') {
+        iconName = 'format-list-bulleted';
+      } else if (routeName === 'Profile') {
         iconName = 'person';
       }
       return <MaterialIcons name={iconName} size={25} color={tintColor} />;
@@ -74,6 +75,8 @@ const TabNavigator = createBottomTabNavigator({
     activeTintColor: 'tomato',
     inactiveTintColor: 'gray',
   },
+  header: null,
+  headerTitle: '',
 });
 
 export default createAppContainer(TabNavigator);

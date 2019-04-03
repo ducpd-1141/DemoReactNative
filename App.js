@@ -9,11 +9,11 @@
 import { createStackNavigator } from 'react-navigation';
 
 import React from 'react';
-import Main from './src/containers/Main'
-import { Provider } from 'react-redux';
-import configureStore from './src/store'
+import { Provider } from "react-redux";
+import Main from "./src/containers/Main";
+import configureStore from './src/store';
 
-const store = configureStore()
+const store = configureStore();
 
 const app = () => (
   <Provider store={store}>
@@ -22,4 +22,3 @@ const app = () => (
 );
 
 export default app;
-

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import MapScreen from '../components/MapScreen';
+import MapScreen from '../screens/map/MapScreen';
 import TopScreen from '../components/TopScreen';
 
 class A extends React.Component {

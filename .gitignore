@@ -4,8 +4,10 @@
 
 # Xcode
 #
+
 build/
 Pods/
+Podfile.lock
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -36,6 +38,8 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn.lock
 
 # BUCK
 buck-out/

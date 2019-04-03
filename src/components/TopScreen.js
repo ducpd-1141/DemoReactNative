@@ -1,4 +1,9 @@
-import React from "react"
+import React from 'react';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
+import { connect } from 'react-redux';
+import { selectedCategory, unselectedCategory } from '../actions/dispathchers';
 
 const {
   Image,
@@ -8,46 +13,29 @@ const {
   FlatList,
   SafeAreaView,
   Dimensions,
-  TouchableOpacity
-} = require("react-native")
-
-import { bindActionCreators } from "redux"
-import { connect } from "react-redux"
-import { selectedCategory, unselectedCategory } from "../actions/dispathchers"
-import configureStore from "../store"
-
-const store = configureStore()
+  TouchableOpacity,
+} = require('react-native');
 
 class TopScreen extends React.PureComponent {
   static navigationOptions = {
-    title: "Home"
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      text: "test state",
-      buttonPress: true,
-      isLoading: true,
-      selectedId: 0
-    }
-    console.log
-  }
+    title: 'Home',
+  };
 
   didSelectedRow(id) {
-    this.selectedCategory(id)
+    this.selectedCategory(id);
+    this.props.navigation.push('SearchDetail');
   }
 
   selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category)
-    console.warn(store.getState())
+    this.props.dispatchUnselectedCategory(category);
+    console.warn(this.props.categorySelected);
   }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
-          <Image source={require("../images/top.jpg")} style={{ resizeMode: "cover" }} />
+          <Image source={coverImage} style={styles.coverImage} />
         </View>
         <FlatList
           style={styles.list}
@@ -58,100 +46,106 @@ class TopScreen extends React.PureComponent {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.item}
-              onPress={this.didSelectedRow.bind(this, item.title)}
+              onPress={() => this.didSelectedRow(item.categoryId)}
             >
               <View style={styles.container}>
-                <Image source={item.image} style={styles.image} />
+                <Text>{item.image}</Text>
               </View>
-
               <Text style={styles.text}>{item.title}</Text>
             </TouchableOpacity>
           )}
         />
       </SafeAreaView>
-    )
+    );
   }
 }
 
+const coverImage = require('../images/top.jpg');
+
 const dataSource = [
   {
-    title: "Hotel",
-    categoryId: "4bf58dd8d48988d1fa931735",
-    image: require("../images/ic_hotel.png")
+    title: 'Hotel',
+    categoryId: '4bf58dd8d48988d1fa931735',
+    image: <MaterialIcons name="hotel" size={50} color="#4C595C" />,
   },
   {
-    title: "Food",
-    categoryId: "4d4b7105d754a06374d81259",
-    image: require("../images/ic_food.png")
+    title: 'Food',
+    categoryId: '4d4b7105d754a06374d81259',
+    image: <MaterialIcons name="restaurant" size={50} color="#4C595C" />,
   },
   {
-    title: "Night Market",
-    categoryId: "53e510b7498ebcb1801b55d4",
-    image: require("../images/ic_market.png")
+    title: 'Night Market',
+    categoryId: '53e510b7498ebcb1801b55d4',
+    image: <MaterialIcons name="shopping-cart" size={50} color="#4C595C" />,
   },
   {
-    title: "Coffee Shop",
-    categoryId: "4bf58dd8d48988d1e0931735",
-    image: require("../images/ic_coffee.png")
+    title: 'Coffee Shop',
+    categoryId: '4bf58dd8d48988d1e0931735',
+    image: <MaterialIcons name="local-drink" size={50} color="#4C595C" />,
   },
   {
-    title: "Movie Theater",
-    categoryId: "4bf58dd8d48988d17f941735",
-    image: require("../images/ic_cinema.png")
+    title: 'Movie Theater',
+    categoryId: '4bf58dd8d48988d17f941735',
+    image: <MaterialCommunityIcons name="theater" size={50} color="#4C595C" />,
   },
   {
-    title: "Gym / Fitness Center",
-    categoryId: "4bf58dd8d48988d175941735",
-    image: require("../images/ic_gym.png")
-  }
-]
+    title: 'Gym / Fitness Center',
+    categoryId: '4bf58dd8d48988d175941735',
+    image: <MaterialIcons name="fitness-center" size={50} color="#4C595C" />,
+  },
+];
 
-const numColumns = 3
-const itemSpacing = 1
-const width = (Dimensions.get("window").width - (numColumns - 1) * itemSpacing) / 3
-var height = 342 / 2
+const numColumns = 3;
+const itemSpacing = 1;
+const width = (Dimensions.get('window').width - (numColumns - 1) * itemSpacing) / 3;
+const height = 342 / 2;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#CCCCCC",
-    alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: '#CCCCCC',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   list: {
     flex: 1,
-    backgroundColor: "#999999"
+    backgroundColor: '#999999',
   },
   item: {
-    width: width,
-    height: height,
+    width,
+    height,
     margin: itemSpacing,
-    flexDirection: "column",
-    backgroundColor: "#CCCCCC"
+    flexDirection: 'column',
+    backgroundColor: '#CCCCCC',
   },
   text: {
-    width: "100%",
-    height: "35%",
+    width: '100%',
+    height: '35%',
     fontSize: 18,
-    color: "#4C595C",
-    textAlign: "center"
+    color: '#4C595C',
+    textAlign: 'center',
   },
-  image: { width: "50%", height: "50%", resizeMode: "contain", tintColor: "#4C595C" }
-})
-
+  categoryImage: {
+    width: '50%',
+    height: '50%',
+    resizeMode: 'contain',
+    tintColor: '#4C595C',
+  },
+  coverImage: { resizeMode: 'cover' },
+});
 function mapStateToProps(state) {
   return {
-    main2: state.main
-  }
+    categorySelected: state.main.categorySelected,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatchSelectedCategory: category => dispatch(selectedCategory(category)),
-    dispatchUnselectedCategory: category => dispatch(unselectedCategory(category))
-  }
+    dispatchUnselectedCategory: category => dispatch(unselectedCategory(category)),
+  };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(TopScreen)
+  mapDispatchToProps,
+)(TopScreen);

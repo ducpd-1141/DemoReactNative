@@ -14,22 +14,25 @@
     "pretty": "prettier --semi false --print-width 100 --single-quote--trailing-comma all --write \"src/**/*.js\""
   },
   "dependencies": {
+    "@babel/preset-flow": "^7.0.0",
     "apisauce": "^1.0.2",
+    "d": "^1.0.0",
     "moment": "^2.24.0",
     "react": "16.8.3",
     "react-native": "^0.59.2",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-maps": "^0.23.0",
+    "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.3.0",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.3.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
-    "babel-preset-flow": "^6.23.0",
     "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-flowtype": "^3.4.2",
@@ -43,11 +46,7 @@
     "lint-staged": "^8.1.5",
     "metro-react-native-babel-preset": "^0.53.1",
     "prettier": "^1.16.4",
-    "react-test-renderer": "16.8.3",
-    "tslint": "^5.14.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^3.6.0"
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native"

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import mainReducer from './MainReducer';
+import mainReducer from './top/index';
 import { venuesReducer } from './VenuesReducer';
 
 // Root Reducer

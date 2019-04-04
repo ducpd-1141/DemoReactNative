@@ -1,6 +1,6 @@
 import { takeEvery, all } from 'redux-saga/effects';
 // import { CLIENT_ID, CLIENT_SECRET } from '../constants/index';
-import { DECREMENT, INCREMENT } from '../actions/VenuesActions';
+import { actionTypes } from '../actions/VenuesActions';
 
 // export function* helloSaga() {
 //   console.log('Hello Sagas!');
@@ -13,7 +13,7 @@ function increment() {
 }
 
 export function* watchIncrement() {
-  yield takeEvery(INCREMENT, increment);
+  yield takeEvery(actionTypes.INCREMENT, increment);
 }
 
 function decrement() {
@@ -21,7 +21,7 @@ function decrement() {
 }
 
 export function* watchDecrement() {
-  yield takeEvery(DECREMENT, decrement);
+  yield takeEvery(actionTypes.DECREMENT, decrement);
 }
 
 export default function* rootSaga() {

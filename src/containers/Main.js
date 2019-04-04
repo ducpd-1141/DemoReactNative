@@ -7,8 +7,8 @@ import {
 } from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MapScreen from '../components/MapScreen';
-import TopScreen from '../components/TopScreen';
-import SearchDetail from '../components/SearchDetail';
+import TopScreen from '../components/Top/TopScreen';
+import SearchDetail from '../components/Top/SearchDetail';
 import ListScreen from '../components/ListScreen';
 
 class D extends React.Component {

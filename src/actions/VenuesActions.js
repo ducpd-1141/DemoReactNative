@@ -1,5 +1,3 @@
-// import { LOAD_VENUE_TIPS, INCREMENT, DECREMENT } from './actionTypes';
-
 export const actionTypes = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',

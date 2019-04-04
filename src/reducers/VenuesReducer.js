@@ -1,4 +1,4 @@
-import { LOAD_VENUE_TIPS, INCREMENT, DECREMENT } from '../actions/actionTypes';
+import { actionTypes } from '../actions/VenuesActions';
 
 const INITIAL_STATE = {
   time: 0,
@@ -18,11 +18,11 @@ function decrementValue(state, step) {
 
 export const venuesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case LOAD_VENUE_TIPS:
+    case actionTypes.LOAD_VENUE_TIPS:
       return state;
-    case INCREMENT:
+    case actionTypes.INCREMENT:
       return incrementValue(state, action.payload);
-    case DECREMENT:
+    case actionTypes.DECREMENT:
       return decrementValue(state, action.payload);
     default:
       return state;

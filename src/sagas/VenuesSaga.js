@@ -1,6 +1,6 @@
 import { takeEvery, all } from 'redux-saga/effects';
 // import { CLIENT_ID, CLIENT_SECRET } from '../constants/index';
-import { DECREMENT, INCREMENT } from '../actions/actionTypes';
+import { DECREMENT, INCREMENT } from '../actions/VenuesActions';
 
 // export function* helloSaga() {
 //   console.log('Hello Sagas!');

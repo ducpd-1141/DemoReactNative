@@ -6,5 +6,6 @@
     "javascript.format.enable": false,
     "eslint.alwaysShowStatus": true,
     "eslint.autoFixOnSave": true,
-    "eslint.packageManager": "yarn"
+    "eslint.packageManager": "yarn",
+    "flow.runOnEdit": false
 }

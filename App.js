@@ -6,15 +6,13 @@
  * @flow
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
-import { createStackNavigator } from 'react-navigation';
 
 import React from 'react';
-import { Provider } from "react-redux";
-import Main from "./src/containers/Main";
+import { Provider } from 'react-redux';
+import Main from './src/containers/Main';
 import configureStore from './src/store';
 
 const store = configureStore();
-
 const app = () => (
   <Provider store={store}>
     <Main />

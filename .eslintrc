@@ -1,10 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "airbnb-base"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb-base"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
@@ -17,7 +13,8 @@
     "react-native",
     "flowtype",
     "jsx-a11y",
-    "import"
+    "import",
+    "prettier"
   ],
   "rules": {
     "arrow-body-style": "warn",
@@ -42,18 +39,10 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".json"
-        ]
+        "extensions": [".js", ".jsx", ".json"]
       }
     },
-    "import/extensions": [
-      ".js",
-      ".mjs",
-      ".jsx"
-    ],
+    "import/extensions": [".js", ".mjs", ".jsx"],
     "import/core-modules": [],
     "import/ignore": [
       "node_modules",
@@ -63,10 +52,6 @@
       "pragma": "React",
       "version": "detect"
     },
-    "propWrapperFunctions": [
-      "forbidExtraProps",
-      "exact",
-      "Object.freeze"
-    ]
+    "propWrapperFunctions": ["forbidExtraProps", "exact", "Object.freeze"]
   }
 }

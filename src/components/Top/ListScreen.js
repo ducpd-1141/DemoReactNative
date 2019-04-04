@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  SafeAreaView, View, SectionList, StyleSheet, FlatList, Text, Button,
+  SafeAreaView, View, StyleSheet, Text, Button,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { decreaseValue, increaseValue } from '../actions/VenuesActions';
+import { actionCreator } from '../../actions/VenuesActions';
 
 class ListScreen extends React.Component {
   render() {
@@ -85,10 +85,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   onIncrement: (step) => {
-    dispatch(increaseValue(step));
+    dispatch(actionCreator.increaseValue(step));
   },
   onDecrement: (step) => {
-    dispatch(decreaseValue(step));
+    dispatch(actionCreator.decreaseValue(step));
   },
 });
 

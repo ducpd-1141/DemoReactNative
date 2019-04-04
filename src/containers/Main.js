@@ -9,7 +9,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MapScreen from '../components/MapScreen';
 import TopScreen from '../components/Top/TopScreen';
 import SearchDetail from '../components/Top/SearchDetail';
-import ListScreen from '../components/ListScreen';
+import ListScreen from '../components/Top/ListScreen';
 
 class D extends React.Component {
   render() {
@@ -38,7 +38,7 @@ const TopContainer = createAppContainer(Navigator);
 const TabNavigator = createBottomTabNavigator(
   {
     Search: TopContainer,
-    Settings: MapScreen,
+    Explore: MapScreen,
     List: ListScreen,
     Profile: D,
   },

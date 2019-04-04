@@ -4,18 +4,24 @@ export const actionTypes = {
   LOAD_VENUE_TIPS: 'LOAD_VENUE_TIPS',
 };
 
-export const loadVenueTips = location => ({
+const loadVenueTips = location => ({
   type: actionTypes.LOAD_VENUE_TIPS,
   payload: location,
 });
 
 // For demo saga
-export const increaseValue = step => ({
+const increaseValue = step => ({
   type: actionTypes.INCREMENT,
   payload: step,
 });
 
-export const decreaseValue = step => ({
+const decreaseValue = step => ({
   type: actionTypes.DECREMENT,
   payload: step,
 });
+
+export const actionCreator = {
+  loadVenueTips,
+  increaseValue,
+  decreaseValue,
+};

@@ -9,23 +9,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MapScreen from '../components/MapScreen';
 import TopScreen from '../components/Top/TopScreen';
 import SearchDetail from '../components/Top/SearchDetail';
-
-class C extends React.Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#fff',
-        }}
-      >
-        <Text>History</Text>
-      </View>
-    );
-  }
-}
+import ListScreen from '../components/Top/ListScreen';
 
 class D extends React.Component {
   render() {
@@ -55,7 +39,7 @@ const TabNavigator = createBottomTabNavigator(
   {
     Search: TopContainer,
     Explore: MapScreen,
-    History: C,
+    List: ListScreen,
     Profile: D,
   },
   {

@@ -1,10 +1,5 @@
 import React from 'react';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { selectedCategory, unselectedCategory } from '../actions/dispathchers';
-import configureStore from '../store';
-
 const {
   Image,
   StyleSheet,
@@ -16,8 +11,6 @@ const {
   Dimensions,
   TouchableOpacity,
 } = require('react-native');
-
-const store = configureStore();
 
 class SearchDetail extends React.Component {
   static navigationOptions = {
@@ -48,9 +41,9 @@ class SearchDetail extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <Text>Detail!</Text>
-      </View>
+        <View style={styles.container}>
+          <Text>Detail!</Text>
+        </View>
       </SafeAreaView>
     );
   }

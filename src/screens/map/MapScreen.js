@@ -75,22 +75,22 @@ class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    // navigator.geolocation.getCurrentPosition(
-    //   (position) => {
-    //     console.log(position);
-    //     this.setState({
-    //       region: {
-    //         latitude: position.coords.latitude,
-    //         longitude: position.coords.longitude,
-    //         latitudeDelta: 0.005,
-    //         longitudeDelta: 0.005,
-    //       },
-    //     });
-    //     console.log(this.state);
-    //   },
-    //   error => this.setState({ error: error.message }),
-    //   { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-    // );
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position);
+        // this.setState({
+        //   region: {
+        //     latitude: position.coords.latitude,
+        //     longitude: position.coords.longitude,
+        //     latitudeDelta: 0.005,
+        //     longitudeDelta: 0.005,
+        //   },
+        // });
+        console.log(this.state);
+      },
+      error => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
 
     this.animation.addListener(({ value }) => {
       // animate 30% away from landing on the next item

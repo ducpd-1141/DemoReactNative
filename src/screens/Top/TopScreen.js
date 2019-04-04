@@ -3,7 +3,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { connect } from 'react-redux';
-import { actionCreator } from '../../actions/top';
+import { actionCreator } from '../../redux/top/actions';
 
 const {
   StyleSheet,

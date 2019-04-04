@@ -1,4 +1,4 @@
-import { actionTypes } from '../actions/VenuesActions';
+import { actionTypes } from './actions';
 
 const INITIAL_STATE = {
   time: 0,

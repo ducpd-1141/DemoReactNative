@@ -1,5 +1,5 @@
 import {
-  put, call, all, takeLatest,
+  put, call, takeLatest, all,
 } from 'redux-saga/effects';
 import api from '../../network';
 import { KEY_API } from '../../constants';

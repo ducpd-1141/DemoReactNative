@@ -7,5 +7,7 @@
     "eslint.alwaysShowStatus": true,
     "eslint.autoFixOnSave": true,
     "eslint.packageManager": "yarn",
-    "flow.runOnEdit": false
+    "flow.runOnEdit": false,
+    "editor.formatOnSave": true,
+    "prettier.eslintIntegration": true
 }

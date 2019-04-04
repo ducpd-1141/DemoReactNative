@@ -27,68 +27,70 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - React (0.59.2):
-    - React/Core (= 0.59.2)
+  - React (0.59.3):
+    - React/Core (= 0.59.3)
   - react-native-google-maps (0.23.0):
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 2.5.0)
     - React
   - react-native-maps (0.23.0):
     - React
-  - React/Core (0.59.2):
-    - yoga (= 0.59.2.React)
-  - React/CxxBridge (0.59.2):
+  - React/Core (0.59.3):
+    - yoga (= 0.59.3.React)
+  - React/CxxBridge (0.59.3):
     - Folly (= 2018.10.22.00)
     - React/Core
     - React/cxxreact
     - React/jsiexecutor
-  - React/cxxreact (0.59.2):
+  - React/cxxreact (0.59.3):
     - boost-for-react-native (= 1.63.0)
     - DoubleConversion
     - Folly (= 2018.10.22.00)
     - glog
     - React/jsinspector
-  - React/DevSupport (0.59.2):
+  - React/DevSupport (0.59.3):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.59.2)
-  - React/jsi (0.59.2):
+  - React/fishhook (0.59.3)
+  - React/jsi (0.59.3):
     - DoubleConversion
     - Folly (= 2018.10.22.00)
     - glog
-  - React/jsiexecutor (0.59.2):
+  - React/jsiexecutor (0.59.3):
     - DoubleConversion
     - Folly (= 2018.10.22.00)
     - glog
     - React/cxxreact
     - React/jsi
-  - React/jsinspector (0.59.2)
-  - React/RCTActionSheet (0.59.2):
+  - React/jsinspector (0.59.3)
+  - React/RCTActionSheet (0.59.3):
     - React/Core
-  - React/RCTAnimation (0.59.2):
+  - React/RCTAnimation (0.59.3):
     - React/Core
-  - React/RCTBlob (0.59.2):
+  - React/RCTBlob (0.59.3):
     - React/Core
-  - React/RCTGeolocation (0.59.2):
+  - React/RCTGeolocation (0.59.3):
     - React/Core
-  - React/RCTImage (0.59.2):
+  - React/RCTImage (0.59.3):
     - React/Core
     - React/RCTNetwork
-  - React/RCTLinkingIOS (0.59.2):
+  - React/RCTLinkingIOS (0.59.3):
     - React/Core
-  - React/RCTNetwork (0.59.2):
+  - React/RCTNetwork (0.59.3):
     - React/Core
-  - React/RCTSettings (0.59.2):
+  - React/RCTSettings (0.59.3):
     - React/Core
-  - React/RCTText (0.59.2):
+  - React/RCTText (0.59.3):
     - React/Core
-  - React/RCTVibration (0.59.2):
+  - React/RCTVibration (0.59.3):
     - React/Core
-  - React/RCTWebSocket (0.59.2):
+  - React/RCTWebSocket (0.59.3):
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - yoga (0.59.2.React)
+  - RNVectorIcons (6.4.2):
+    - React
+  - yoga (0.59.3.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -111,6 +113,7 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 SPEC REPOS:
@@ -132,6 +135,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-maps"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
@@ -142,11 +147,12 @@ SPEC CHECKSUMS:
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   Google-Maps-iOS-Utils: c32891ff472eaaa1fca032beedafa1a013af7875
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
-  React: 9d063e2f356c8cd2f54dd550d4507740037cbabe
+  React: b52fdb80565505b7e4592b313a38868f5df51641
   react-native-google-maps: 544d2208b09a7e2ec2c6112c8a97c4e7f921f74d
   react-native-maps: 9469741f77f270c605cafec603ce47327dc5b5f8
-  yoga: 3768a3026ade0fb46a68f3a31a917cf86bc34fc4
+  RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
+  yoga: 1a492113f66a35e9e583bb0434f4b8cc668dd839
 
-PODFILE CHECKSUM: 3211cc8bc02c4f3d838bf6944b2e6ec0bab9159e
+PODFILE CHECKSUM: fbfb8c7c32eb240dbb464f45977fe46e80e21dc7
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0.beta.2

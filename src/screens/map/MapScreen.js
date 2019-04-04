@@ -5,7 +5,7 @@ import {
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { connect } from 'react-redux';
 import styles, { CARD_WIDTH } from './styles';
-import { fetching } from '../../redux/map/actions';
+import { actionCreator } from '../../redux/map/actions';
 
 const Images = [
   { uri: 'https://i.imgur.com/sNam9iJ.jpg' },
@@ -210,7 +210,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  searchVenue: (lat, lng) => dispatch(fetching({ lat, lng })),
+  searchVenue: (lat, lng) => dispatch(actionCreator.fetching({ lat, lng })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);

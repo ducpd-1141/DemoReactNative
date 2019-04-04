@@ -3,7 +3,7 @@ import {
   SafeAreaView, View, StyleSheet, Text, Button,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { actionCreator } from '../../actions/VenuesActions';
+import { actionCreator } from '../../redux/venues/actions';
 
 class ListScreen extends React.Component {
   render() {

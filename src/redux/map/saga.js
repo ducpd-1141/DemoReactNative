@@ -2,12 +2,12 @@ import {
   put, call, takeLatest, all,
 } from 'redux-saga/effects';
 import api from '../../network';
-import { KEY_API } from '../../constants';
-import { fetchingSuccess, fetchingError, types } from './actions';
+import { getApiPath } from '../../constants';
+import { actionCreator, types } from './actions';
 
 function* searchVenue(payload) {
   try {
-    const response = yield yield call(api.get, `venues/search?ll=${payload.lat},${payload.lng}&${KEY_API}`);
+    const response = yield yield call(api.get, getApiPath(`venues/search?ll=${payload.lat},${payload.lng}`));
     console.log('response: ', response);
     if (response && response.status === 200) {
       return response.data.response.venues;
@@ -24,13 +24,15 @@ function* searchVenueSaga(action) {
   try {
     const venues = yield call(searchVenue, (action.payload));
     console.log('venues: ', venues);
-    yield put(fetchingSuccess({ venues }));
+    yield put(actionCreator.fetchingSuccess({ venues }));
   } catch (error) {
     console.log(error);
-    yield put(fetchingError({}));
+    yield put(actionCreator.fetchingError({ error }));
   }
 }
 
-export default function* searchVenueWatcher() {
-  yield all([takeLatest(types.fetching, searchVenueSaga)]);
-}
+const searchVenueWatcher = [
+  takeLatest(types.fetching, searchVenueSaga),
+];
+
+export default searchVenueWatcher;

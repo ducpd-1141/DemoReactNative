@@ -2,7 +2,6 @@ import { types } from './actions';
 
 const initState = {
   isFetching: false,
-  isError: false,
 };
 
 const mapReducer = (state = initState, { type, payload }) => {
@@ -22,7 +21,7 @@ const mapReducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         isFetching: false,
-        isError: true,
+        error: payload.error,
       };
     default: return state;
   }

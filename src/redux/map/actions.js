@@ -4,17 +4,17 @@ export const types = {
   fetchingError: 'map/fetchingError',
 };
 
-export const fetching = payload => ({
+const fetching = payload => ({
   type: types.fetching,
   payload,
 });
 
-export const fetchingSuccess = payload => ({
+const fetchingSuccess = payload => ({
   type: types.fetchingSuccess,
   payload,
 });
 
-export const fetchingError = payload => ({
+const fetchingError = payload => ({
   type: types.fetchingError,
   payload,
 });

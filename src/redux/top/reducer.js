@@ -1,4 +1,4 @@
-import { types } from '../../actions/top';
+import { types } from './actions';
 
 const initialState = {
   categorySelected: '',

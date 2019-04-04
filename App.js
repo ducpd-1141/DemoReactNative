@@ -10,9 +10,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import Main from './src/containers/Main';
-import configureStore from './src/store';
+import store from './src/redux/store';
 
-const store = configureStore();
 const app = () => (
   <Provider store={store}>
     <Main />

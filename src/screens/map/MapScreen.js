@@ -3,7 +3,9 @@ import {
   View, TextInput, Animated, Image, Text,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import { connect } from 'react-redux';
 import styles, { CARD_WIDTH } from './styles';
+import { fetching } from '../../redux/map/actions';
 
 const Images = [
   { uri: 'https://i.imgur.com/sNam9iJ.jpg' },
@@ -12,7 +14,7 @@ const Images = [
   { uri: 'https://i.imgur.com/Ka8kNST.jpg' },
 ];
 
-class HomeScreen extends React.Component {
+class MapScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,12 +62,6 @@ class HomeScreen extends React.Component {
         latitudeDelta: 0.04864195044303443,
         longitudeDelta: 0.040142817690068,
       },
-      // region: {
-      //   latitude: 20.9948891,
-      //   longitude: 105.799677,
-      //   latitudeDelta: 0.005,
-      //   longitudeDelta: 0.005,
-      // },
     };
   }
 
@@ -78,15 +74,7 @@ class HomeScreen extends React.Component {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         console.log(position);
-        // this.setState({
-        //   region: {
-        //     latitude: position.coords.latitude,
-        //     longitude: position.coords.longitude,
-        //     latitudeDelta: 0.005,
-        //     longitudeDelta: 0.005,
-        //   },
-        // });
-        console.log(this.state);
+        this.props.searchVenue(position.coords.latitude, position.coords.longitude);
       },
       error => this.setState({ error: error.message }),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
@@ -217,4 +205,12 @@ class HomeScreen extends React.Component {
   }
 }
 
-export default HomeScreen;
+const mapStateToProps = state => ({
+  map: state.map,
+});
+
+const mapDispatchToProps = dispatch => ({
+  searchVenue: (lat, lng) => dispatch(fetching({ lat, lng })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);

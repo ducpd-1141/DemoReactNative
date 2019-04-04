@@ -170,16 +170,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = state => ({
-  categorySelected: state.main.categorySelected,
-});
+// const mapStateToProps = state => ({
+//   categorySelected: state.main.categorySelected,
+// });
 
-const mapDispatchToProps = dispatch => ({
-  dispatchSelectedCategory: category => dispatch(actionCreator.selectedCategory(category)),
-  dispatchUnselectedCategory: category => dispatch(actionCreator.unselectedCategory(category)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   dispatchSelectedCategory: category => dispatch(actionCreator.selectedCategory(category)),
+//   dispatchUnselectedCategory: category => dispatch(actionCreator.unselectedCategory(category)),
+// });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TopScreen);
+export default (TopScreen);

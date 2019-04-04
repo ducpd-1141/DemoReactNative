@@ -16,7 +16,7 @@ function decrementValue(state, step) {
   return { time };
 }
 
-export const venuesReducer = (state = INITIAL_STATE, action) => {
+const venuesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.LOAD_VENUE_TIPS:
       return state;
@@ -28,3 +28,5 @@ export const venuesReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export default venuesReducer;

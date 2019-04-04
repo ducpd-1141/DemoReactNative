@@ -6,10 +6,10 @@ import {
   createStackNavigator,
 } from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import MapScreen from '../screens/map/MapScreen';
-import TopScreen from '../components/Top/TopScreen';
-import SearchDetail from '../components/Top/SearchDetail';
-import ListScreen from '../components/Top/ListScreen';
+import MapScreen from '../map/MapScreen';
+import TopScreen from '../Top/TopScreen';
+import SearchDetail from '../Top/SearchDetail';
+import ListScreen from '../Top/ListScreen';
 
 class D extends React.Component {
   render() {

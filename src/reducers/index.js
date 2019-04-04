@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import mainReducer from './top/index';
-import { venuesReducer } from './VenuesReducer';
+import venuesReducer from './VenuesReducer';
 
 // Root Reducer
 const rootReducer = combineReducers({

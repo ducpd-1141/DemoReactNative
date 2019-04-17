@@ -1,23 +1,21 @@
 export const types = {
-  FETCH_DATA_ERROR: 'FETCH_DATA_ERROR',
-  FETCH_DATA_REQUEST: 'FETCH_DATA_REQUEST',
-  FETCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  SELECTED_CATEGORY: 'SELECTED_CATEGORY',
-  UNSELECTED_CATEGORY: 'SELECTED_CATEGORY',
-  LOAD_VENUE_TIPS: 'LOAD_VENUE_TIPS',
+  searchForCategory: 'top/searchForCategory',
+  searchAll: 'top/searchAll',
+  fetchingError: 'top/fetchingError',
+  fetchingSuccess: 'top/fetchingSuccess',
+  fetching: 'top/fetching',
 };
 
-const selectedCategory = category => ({
-  type: types.SELECTED_CATEGORY,
-  category,
+const searchForCategory = payload => ({
+  type: types.searchForCategory,
+  payload,
 });
 
-const unselectedCategory = category => ({
-  type: types.UNSELECTED_CATEGORY,
-  category,
+const searchAll = () => ({
+  type: types.searchAll,
 });
 
 export const actionCreator = {
-  selectedCategory,
-  unselectedCategory,
+  searchForCategory,
+  searchAll,
 };

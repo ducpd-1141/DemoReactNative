@@ -4,14 +4,19 @@ const initialState = {
   categorySelected: '',
 };
 
-export default function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   // Log the initial state
   switch (action.type) {
-    case types.SELECTED_CATEGORY:
-      return { ...state, categorySelected: action.category };
-    case types.UNSELECTED_CATEGORY:
-      return { ...state, categorySelected: action.category };
+    case types.searchAll:
+      console.warn('search all');
+      return { ...state, categorySelected: 123 };
+    case types.searchForCategory:
+      console.warn('searchForCategory2');
+
+      return { ...state, categorySelected: action.payload };
     default:
       return state;
   }
-}
+};
+
+export default reducer;

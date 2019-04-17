@@ -8,26 +8,22 @@ export const CARD_WIDTH = CARD_HEIGHT - 50;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   containerMap: {
     flex: 1,
     width: '100%',
     height: '100%',
-    position: 'absolute',
   },
   map: {
     width: '100%',
     height: '100%',
   },
   containerSearchBar: {
+    width: '100%',
     height: 50,
-    marginStart: 20,
-    marginEnd: 20,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    alignItems: 'flex-start',
-    marginTop: 60,
-    borderRadius: 5,
   },
   textInputSearch: {
     marginStart: 20,
@@ -92,6 +88,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderWidth: 1,
     borderColor: 'rgba(130,4,150, 0.5)',
+  },
+  containerLoading: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  markerImage: {
+    width: 25,
+    height: 25,
+  },
+  containerLayoutSearchBar: {
+    flex: 1,
+    backgroundColor: '#fff',
+    width: '100%',
+    height: '100%',
   },
 });
 

@@ -1,22 +1,24 @@
 export const actionTypes = {
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  LOAD_VENUE_TIPS: 'LOAD_VENUE_TIPS',
+  increment: 'increment',
+  decrement: 'decrement',
+  fetchRecommendVenues: 'fetchRecommendVenues',
+  receivedRecommendVenues: 'receivedRecommendVenues',
 };
 
+// Input actions
 const loadVenueTips = location => ({
-  type: actionTypes.LOAD_VENUE_TIPS,
+  type: actionTypes.fetchRecommendVenues,
   payload: location,
 });
 
 // For demo saga
 const increaseValue = step => ({
-  type: actionTypes.INCREMENT,
+  type: actionTypes.increment,
   payload: step,
 });
 
 const decreaseValue = step => ({
-  type: actionTypes.DECREMENT,
+  type: actionTypes.decrement,
   payload: step,
 });
 

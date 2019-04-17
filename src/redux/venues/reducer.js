@@ -1,6 +1,6 @@
 import { actionTypes } from './actions';
 
-const INITIAL_STATE = {
+const initialState = {
   time: 0,
 };
 
@@ -16,14 +16,20 @@ function decrementValue(state, step) {
   return { time };
 }
 
-const venuesReducer = (state = INITIAL_STATE, action) => {
+const venuesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOAD_VENUE_TIPS:
-      return state;
-    case actionTypes.INCREMENT:
+    case actionTypes.fetchRecommendVenues:
+      return { ...state, isLoading: true };
+    case actionTypes.increment:
       return incrementValue(state, action.payload);
-    case actionTypes.DECREMENT:
+    case actionTypes.decrement:
       return decrementValue(state, action.payload);
+    case actionTypes.receivedRecommendVenues:
+      return {
+        ...state,
+        isLoading: false,
+        recommendPlaces: action.response.groups[0].items,
+      };
     default:
       return state;
   }

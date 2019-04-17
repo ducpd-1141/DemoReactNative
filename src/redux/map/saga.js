@@ -7,7 +7,7 @@ import { actionCreator, types } from './actions';
 
 function* searchVenue(payload) {
   try {
-    const response = yield yield call(api.get, getApiPath(`venues/search?ll=${payload.lat},${payload.lng}`));
+    const response = yield call(api.get, getApiPath(`venues/search?ll=${payload.lat},${payload.lng}`));
     console.log('response: ', response);
     if (response && response.status === 200) {
       return response.data.response.venues;

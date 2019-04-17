@@ -2,6 +2,7 @@ import { types } from './actions';
 
 const initState = {
   isFetching: false,
+  venues: [],
 };
 
 const mapReducer = (state = initState, { type, payload }) => {
@@ -16,6 +17,7 @@ const mapReducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         isFetching: false,
+        venues: payload.venues,
       };
     case types.fetchingError:
       return {

@@ -9,25 +9,20 @@ const {
   StyleSheet, Text, View, TouchableOpacity, ImageBackground,
 } = require('react-native');
 
-class TopScreen extends React.PureComponent {
+class TopScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
     header: null,
   };
 
-  componentWillReceiveProps(nextProps) {
-    console.warn(nextProps.categorySelected, 1);
-    if (nextProps.categorySelected !== null) {
-      this.props.navigation.push('SearchDetail');
-    }
-  }
-
   searchAll() {
     this.props.dispatchSearchAll();
+    this.props.navigation.push('SearchDetail');
   }
 
   searchForCategory(category) {
     this.props.dispatchSearchForCategory(category);
+    this.props.navigation.push('SearchDetail');
   }
 
   getCategoriesView() {
@@ -40,7 +35,14 @@ class TopScreen extends React.PureComponent {
         <View style={styles.categoryIcon}>
           <Text>{object.image}</Text>
         </View>
-        <Text style={styles.text}>{object.title}</Text>
+        <Text
+          style={[
+            { color: this.props.categorySelected === object.categoryId ? 'red' : '#4C595C' },
+            styles.text,
+          ]}
+        >
+          {object.title}
+        </Text>
       </TouchableOpacity>
     ));
     return items;
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '40%',
     fontSize: 16,
-    color: '#4C595C',
+    // color: '#4C595C',
     textAlign: 'center',
   },
   categoryIcon: {
@@ -178,10 +180,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   dispatchSearchAll: () => dispatch(actionCreator.searchAll()),
-  dispatchSearchForCategory: category => dispatch(actionCreator.searchForCategory(category)),
+  dispatchSearchForCategory: (category) => {
+    dispatch(actionCreator.searchForCategory(category));
+  },
 });
-
-// export default TopScreen;
 
 export default connect(
   mapStateToProps,

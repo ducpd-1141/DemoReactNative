@@ -11,12 +11,8 @@ function* searchAll() {
   // yield delay(20);
   // yield put(actionCreator.searchAll());
 }
-function* searchForCategory(action) {
-  // console.warn('search searchForCategory---', action);
-  // yield delay(20);
-  // yield put(actionCreator.searchForCategory('124124'));
+function searchForCategory(action) {
 }
-
 const categoryWatcher = [
   takeLatest(types.searchAll, searchAll),
   takeLatest(types.searchForCategory, searchForCategory),

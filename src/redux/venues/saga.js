@@ -24,7 +24,6 @@ function* fetchRecommendVenues(action) {
   } catch (error) {
     console.log(error);
   }
-  return null;
 }
 
 const venuesSaga = [

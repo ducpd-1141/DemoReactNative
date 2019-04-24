@@ -1,17 +1,19 @@
 import { types } from './actions';
 
 const initialState = {
-  categorySelected: '',
+  categorySelected: null,
 };
 
-export default function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
   // Log the initial state
   switch (action.type) {
-    case types.SELECTED_CATEGORY:
-      return { ...state, categorySelected: action.category };
-    case types.UNSELECTED_CATEGORY:
-      return { ...state, categorySelected: action.category };
+    case types.searchAll:
+      return { ...state, categorySelected: 123 };
+    case types.searchForCategory:
+      return { ...state, categorySelected: action.payload };
     default:
       return state;
   }
-}
+};
+
+export default reducer;

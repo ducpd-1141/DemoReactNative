@@ -6,39 +6,43 @@ import { connect } from 'react-redux';
 import { actionCreator } from '../../redux/top/actions';
 
 const {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ImageBackground,
+  StyleSheet, Text, View, TouchableOpacity, ImageBackground,
 } = require('react-native');
 
-class TopScreen extends React.PureComponent {
+class TopScreen extends React.Component {
   static navigationOptions = {
     title: 'Home',
     header: null,
   };
 
-  didSelectedRow(id) {
-    this.selectedCategory(id);
+  searchAll() {
+    this.props.dispatchSearchAll();
     this.props.navigation.push('SearchDetail');
   }
 
-  selectedCategory(category) {
-    this.props.dispatchUnselectedCategory(category);
-    console.warn(this.props.categorySelected);
+  searchForCategory(category) {
+    this.props.dispatchSearchForCategory(category);
+    this.props.navigation.push('SearchDetail');
   }
 
-  getCotegoriesView() {
+  getCategoriesView() {
     const items = dataSource.map(object => (
       <TouchableOpacity
+        key={object.categoryId}
         style={styles.item}
-        onPress={() => this.didSelectedRow(object.categoryId)}
+        onPress={() => this.searchForCategory(object.categoryId)}
       >
         <View style={styles.categoryIcon}>
           <Text>{object.image}</Text>
         </View>
-        <Text style={styles.text}>{object.title}</Text>
+        <Text
+          style={[
+            { color: this.props.categorySelected === object.categoryId ? 'red' : '#4C595C' },
+            styles.text,
+          ]}
+        >
+          {object.title}
+        </Text>
       </TouchableOpacity>
     ));
     return items;
@@ -50,19 +54,19 @@ class TopScreen extends React.PureComponent {
         <View style={styles.cover}>
           <ImageBackground source={coverImage} style={styles.coverImage}>
             <View style={styles.search}>
-              <View style={styles.textInput}>
+              <TouchableOpacity style={styles.textInput} onPress={() => this.searchAll()}>
                 <View style={styles.searchItem}>
                   <Text>
                     <MaterialIcons name="search" size={30} color="#4C595C" />
                   </Text>
                 </View>
                 <Text>What are you looking for?</Text>
-              </View>
+              </TouchableOpacity>
             </View>
           </ImageBackground>
         </View>
 
-        <View style={styles.list}>{this.getCotegoriesView()}</View>
+        <View style={styles.list}>{this.getCategoriesView()}</View>
       </View>
     );
   }
@@ -154,7 +158,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '40%',
     fontSize: 16,
-    color: '#4C595C',
+    // color: '#4C595C',
     textAlign: 'center',
   },
   categoryIcon: {
@@ -170,13 +174,18 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapStateToProps = state => ({
-//   categorySelected: state.main.categorySelected,
-// });
+const mapStateToProps = state => ({
+  categorySelected: state.top.categorySelected,
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   dispatchSelectedCategory: category => dispatch(actionCreator.selectedCategory(category)),
-//   dispatchUnselectedCategory: category => dispatch(actionCreator.unselectedCategory(category)),
-// });
+const mapDispatchToProps = dispatch => ({
+  dispatchSearchAll: () => dispatch(actionCreator.searchAll()),
+  dispatchSearchForCategory: (category) => {
+    dispatch(actionCreator.searchForCategory(category));
+  },
+});
 
-export default (TopScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TopScreen);

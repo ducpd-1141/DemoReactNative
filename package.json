@@ -17,7 +17,7 @@
     "@babel/preset-flow": "^7.0.0",
     "apisauce": "^1.0.2",
     "d": "^1.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "16.8.3",
     "react-native": "^0.59.2",
     "react-native-elements": "^1.1.0",
